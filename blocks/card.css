@@ -26,7 +26,7 @@
 }
 
 .card__like-btn {
-  background-image: url(../images/like-icon.png);
+  background-image: url(../images/like-icon.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -51,5 +51,6 @@
 
   .card__title {
     max-width: 235px;
+    font-size: 16px;
   }
 }

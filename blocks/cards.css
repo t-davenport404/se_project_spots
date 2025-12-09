@@ -17,9 +17,11 @@
   .cards__list {
     grid-template-columns: repeat(auto-fit, 288px);
     max-width: 288px;
+    row-gap: 20px;
   }
 
   .cards {
     max-width: 288px;
+    padding-bottom: 20px;
   }
 }
