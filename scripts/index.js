@@ -34,10 +34,10 @@ const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 const editProfileForm = editProfileModal.querySelector(".modal__form");
 const editProfileNameInput = editProfileModal.querySelector(
-  "#profile-name-input"
+  "#profile-name-input",
 );
 const editProfileDescriptionInput = editProfileModal.querySelector(
-  "#profile-description-input"
+  "#profile-description-input",
 );
 
 const newPostBtn = document.querySelector(".profile__add-btn");
@@ -49,9 +49,10 @@ const newPostForm = newPostModal.querySelector(".modal__form");
 const newPostImageInput = newPostModal.querySelector("#card-image-input");
 const newPostCaptionInput = newPostModal.querySelector("#card-caption-input");
 
+const modalOverlays = document.querySelectorAll(".modal");
 const previewModal = document.querySelector("#preview-modal");
 const previewModalCloseBtn = previewModal.querySelector(
-  ".modal__close-btn_type_preview"
+  ".modal__close-btn_type_preview",
 );
 const previewImageEl = previewModal.querySelector(".modal__image");
 const previewCaptionEl = previewModal.querySelector(".modal__caption");
@@ -95,12 +96,24 @@ function getCardElement(data) {
   return cardElement;
 }
 
+function handleEscKey(event) {
+  if (event.key === "Escape") {
+    const openedModal = document.querySelector(".modal_is-opened"); // Find the currently open modal
+    if (openedModal) {
+      // Check if a modal is actually open
+      closeModal(openedModal);
+    }
+  }
+}
+
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+  document.addEventListener("keydown", handleEscKey);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  document.removeEventListener("keydown", handleEscKey);
 }
 
 editProfileBtn.addEventListener("click", function () {
@@ -109,7 +122,7 @@ editProfileBtn.addEventListener("click", function () {
   resetValidation(
     editProfileForm,
     [editProfileNameInput, editProfileDescriptionInput],
-    settings
+    settings,
   );
   openModal(editProfileModal);
 });
@@ -162,3 +175,13 @@ initialCards.forEach(function (item) {
   const cardElement = getCardElement(item);
   cardList.append(cardElement);
 });
+
+modalOverlays.forEach((modal) => {
+  modal.addEventListener("click", function (evt) {
+    if (evt.target.classList.contains("modal")) {
+      closeModal(modal);
+    }
+  });
+});
+
+closeModalOverlay();
