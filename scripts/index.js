@@ -163,7 +163,7 @@ function handleNewPostSubmit(evt) {
 
   cardList.prepend(cardElement);
   evt.target.reset();
-  disableButton(newPostSubmitBtn);
+  disableButton(buttonEl, config);
 
   closeModal(newPostModal);
 }
@@ -183,5 +183,3 @@ modalOverlays.forEach((modal) => {
     }
   });
 });
-
-closeModalOverlay();

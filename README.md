@@ -31,6 +31,3 @@ and some challenges I faced while building it:
 
 - [Spots Video](https://drive.google.com/file/d/1nchhfoHP_1nGxc4yZUODyXT97EBaz9kL/view?usp=drive_link)
 - [Second Spots Video](https://www.loom.com/share/3875b99589d147d79c9988c29f5533f7)
-
-  Check out [Spots Video](https://drive.google.com/file/d/1nchhfoHP_1nGxc4yZUODyXT97EBaz9kL/view?usp=drive_link), where I describe my
-  project and some challenges I faced while building it.
